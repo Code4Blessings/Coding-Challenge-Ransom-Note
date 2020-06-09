@@ -6,11 +6,11 @@ Harold is a kidnapper who wrote a ransom note, but now he is worried it will be 
 
 Given the words in the magazine and the words in the ransom note, print Yes if he can replicate his ransom note exactly using whole words from the magazine; otherwise, print No.
 
-For example, the note is "Attack at dawn". The magazine contains only "attack at dawn". The magazine has all the right words, but there's a case mismatch. The answer is .
+For example, the note is "Attack at dawn". The magazine contains only "attack at dawn". The magazine has all the right words, but there's a case mismatch. The answer is No.
 
 Function Description
 
-Complete the checkMagazine function in the editor below. It must print  if the note can be formed using the magazine, or .
+Complete the checkMagazine function in the editor below. It must print Yes if the note can be formed using the magazine, or No.
 
 checkMagazine has the following parameters:
 
