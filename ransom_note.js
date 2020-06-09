@@ -68,8 +68,9 @@ function checkMagazine(magazine, note) {
     //Otherwise, check to see if the uppercases and lowercases match using .localCompare method. 
     //If 1, print Yes, otherwise print no.
 
-
 }
+
+
 
 function main() {
     const mn = readLine().split(' ');
