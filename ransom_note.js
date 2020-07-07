@@ -1,31 +1,3 @@
-'use strict';
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', inputStdin => {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function () {
-    inputString = inputString.replace(/\s*$/, '')
-        .split('\n')
-        .map(str => str.replace(/\s*$/, ''));
-
-    main();
-});
-
-
-
-
-function readLine() {
-
-    return inputString[currentLine++];
-}
-
 // Complete the checkMagazine function below.
 
 // # Complete the checkMagazine function below.
@@ -48,43 +20,43 @@ function readLine() {
     //Does localCompare method just test for case sensitivity or everything?
     //Answer: note.localCompare(magazine)
     
-
-
 function checkMagazine(magazine, note) {
-    //1. Take the magazine string and change it to an array using .split(' ')
-    const magazineStr = magazine.split(' ')
-    //2. Take the note string and also change it to an array using .split(' ')
-    const noteStr = note.split(' ')
-    //3. Now for each string in the note array, need to check:
-    // See if the string is included in the magazine array, if true, print No
-    noteStr.localCompare(magazineStr)
-        if (1) {
-            console.log('Yes')
+    const magazineArr = magazine.toString().split(' ');
+    const noteArr = note.toString().split(' ');
+    //Implement the Anagram Algorithm for this problem
+    //Make an edge case for this problem.  The words are case-sensitve so if that doesn't match, then this is automatically "NO"
+    // if (magazine.localCompare(note) === 1) {
+    //     return "NO"
+    // }
+    //For the magazine
+    //Create a JS object called checkMagazine
+    const checkMag = {};
+    //Loop over the words from the magazine.
+    for(let i=0; i < magazineArr.length; i++) {
+        let word = magazineArr[i]
+        //If the word is found in the object, then increment the word.
+        //If the word is not found in the object, then set it equal to 1
+        checkMag[word] ? checkMag[word] +=1 : checkMag[word] = 1
+     }
+    //For the note
+    //Loop through the note
+    for (let i = 0; i < noteArr.length; i++) {
+        let word = noteArr[i]
+        //If the word is not found in checkMagazine, return 'NO'
+        if(!checkMag[word]) {
+            return "NO"
+            //Otherwise decrement the word in the note
         }else {
-            console.log('No')
+           checkMag[word] -= 1 
         }
-    
-
-    //Otherwise, check to see if the uppercases and lowercases match using .localCompare method. 
-    //If 1, print Yes, otherwise print no.
-
+        //Return "Yes" for the loop
+    }
+    return "YES"   
 }
 
+console.log(checkMagazine('two times two is four', 'two times two is four'))
 
 
-function main() {
-    const mn = readLine().split(' ');
-
-    const m = parseInt(mn[0], 10);
-
-    const n = parseInt(mn[1], 10);
-
-    const magazine = readLine().split(' ');
-
-    const note = readLine().split(' ');
-
-    checkMagazine(magazine, note);
-}
 
 
 
